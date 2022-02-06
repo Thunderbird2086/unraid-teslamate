@@ -15,7 +15,7 @@
 * Requirements:
   1. PostgreSQL 10+
   1. Grafana
-     - signed plugin: TrackMap by prOps 
+     - community plugin: TrackMap by prOps 
      - unsigned plugin: [Panodata Map Panel](https://github.com/panodata/panodata-map-panel)
   1. Mosquitto : optional
 
@@ -29,6 +29,6 @@
        `GF_INSTALL_PLUGINS` should be `<plugin url>;<plugin directory>`, then `GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS` should `<plugin directory>`.
      - [Import Grafana Dashboards](https://docs.teslamate.org/docs/installation/debian#import-grafana-dashboards)
   1. Install Mosquitto 
-     - No need to install in case MQTT feature is disabled
+     - Skip in case MQTT feature is disabled
   1. Install TeslaMate
      - Use `POSTGRES_USER`, `POSTGRES_PASSWORD` and `POSTGRES_DB` for database connection.
