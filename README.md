@@ -26,8 +26,8 @@
   1. Install Grafana continer
      - unsigneed plugin [Panodata Map Panel](https://github.com/panodata/panodata-map-panel) requires to add two container variables of `GF_INSTALL_PLUGINS` and `GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS`
       ![unraid container template](/img/two-additional-container-variables.png)
+       `GF_INSTALL_PLUGINS` should be `<plugin url>;<plugin directory>`, then `GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS` should `<plugin directory>`.
      - [Import Grafana Dashboards](https://docs.teslamate.org/docs/installation/debian#import-grafana-dashboards)
-     - `GF_INSTALL_PLUGINS` should be `<plugin url>;<plugin directory>`, then `GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS` should `<plugin directory>`.
   1. Install Mosquitto
   1. Install TeslaMate
      - Use `POSTGRES_USER`, `POSTGRES_PASSWORD` and `POSTGRES_DB` for database connection.
