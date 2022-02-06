@@ -10,6 +10,7 @@ Dependencies:
 Required steps before install TeslaMate:
  1. Create PostgreSQL database: https://docs.teslamate.org/docs/installation/debian#create-postgresql-database
  2. Import Grafana Dashboards: https://docs.teslamate.org/docs/installation/debian#import-grafana-dashboards
+ * For the details, refer to https://github.com/Thunderbird2086/unraid-teslamate/blob/main/README.md
 
 General features
  * High precision drive data recording
