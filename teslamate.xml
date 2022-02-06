@@ -31,6 +31,15 @@ General features
   <Icon>https://raw.githubusercontent.com/Thunderbird2086/unraid-teslamate/master/img/tesla.png</Icon>
   <Category>Tools Other Status:Stable</Category>
   <Config
+        Type="Port"
+        Name="Teslamate Web UI"
+        Target="4000"
+        Default="4000"
+        Mode="tcp"
+        Description="Teslamate Web UI port"
+        Display="advanced"
+        Required="true">4000</Config>
+  <Config
         Type="Path"
         Name="Import directory"
         Target="/opt/app/import"
@@ -71,10 +80,28 @@ General features
         Name="Database host"
         Target="DATABASE_HOST"
         Default="database"
-        Description="Postgres10 database host"
+        Description="Postgres database host"
         Mask="false"
         Display="always"
         Required="true">database</Config>
+  <Config
+        Type="Variable"
+        Name="Database port"
+        Target="DATABASE_PORT"
+        Default="5432"
+        Description="Port of the database host"
+        Mask="false"
+        Display="advanced"
+        Required="false">5432</Config>
+  <Config
+        Type="Variable"
+        Name="Database uses SSL"
+        Target="DATABASE_SSL"
+        Default="false"
+        Description="Set to true if SSL should be used"
+        Mask="false"
+        Display="advanced"
+        Required="false">false</Config>
   <Config
         Type="Variable"
         Name="MQTT host"
@@ -85,14 +112,32 @@ General features
         Display="always"
         Required="true">mosquitto</Config>
   <Config
-        Type="Port"
-        Name="Teslamate Web UI"
-        Target="4000"
-        Default="4000"
-        Mode="tcp"
-        Description="Teslamate Web UI port"
+        Type="Variable"
+        Name="Disable MQTT feature"
+        Target="DISABLE_MQTT"
+        Default="true"
+        Description="Disable MQTT feature if true. Otherwise, use MQTT"
+        Mask="false"
         Display="always"
-        Required="true">4000</Config>
+        Required="true">true</Config>
+  <Config
+        Type="Variable"
+        Name="MQTT user name"
+        Target="MQTT_USERNAME"
+        Default="teslamate"
+        Description="user name for MQTT server"
+        Mask="false"
+        Display="advanced"
+        Required="false">teslamate</Config>
+  <Config
+        Type="Variable"
+        Name="MQTT password"
+        Target="MQTT_PASSORD"
+        Default="teslamate"
+        Description="user password for MQTT server"
+        Mask="true"
+        Display="advanced"
+        Required="false">teslamate</Config>
   <Beta>False</Beta>
   <Project/>
   <TemplateURL>https://github.com/Thunderbird2086/unraid-teslamate/blob/master/teslamate.xml</TemplateURL>
