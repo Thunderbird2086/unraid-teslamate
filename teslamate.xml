@@ -40,7 +40,7 @@ General features
         Required="true">/mnt/user/appdata/Teslamate/import</Config>
   <Config
         Type="Variable"
-        Name="DATABASE_USER"
+        Name="Database user"
         Target="DATABASE_USER"
         Default="teslamate"
         Description="Postgres database user name"
@@ -49,7 +49,7 @@ General features
         Required="true">teslamate</Config>
   <Config
         Type="Variable"
-        Name="DATABASE_PASS"
+        Name="Database password"
         Target="DATABASE_PASS"
         Default="teslamate"
         Description="Postgres database user password"
@@ -58,7 +58,7 @@ General features
         Required="true">teslamate</Config>
   <Config
         Type="Variable"
-        Name="DATABASE_NAME"
+        Name="Database name"
         Target="DATABASE_NAME"
         Default="teslamate"
         Description="Postgres database name"
@@ -67,7 +67,7 @@ General features
         Required="true">teslamate</Config>
   <Config
         Type="Variable"
-        Name="DATABASE_HOST"
+        Name="Database host"
         Target="DATABASE_HOST"
         Default="database"
         Description="Postgres10 database host"
@@ -76,7 +76,7 @@ General features
         Required="true">database</Config>
   <Config
         Type="Variable"
-        Name="MQTT_HOST"
+        Name="MQTT host"
         Target="MQTT_HOST"
         Default="mostquitto"
         Description="MQTT host"
