@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>TeslaMate</Name>
+  <Overview>A data logger for your Tesla
+Dependencies:
+ 1. Postgres 10+
+ 2. Grafana
+ 3. MostQuitto
+
+Required steps before install TeslaMate:
+ 1. Create PostgreSQL database: https://docs.teslamate.org/docs/installation/debian#create-postgresql-database
+ 2. Import Grafana Dashboards: https://docs.teslamate.org/docs/installation/debian#import-grafana-dashboards
+
+General features
+ * High precision drive data recording
+ * No additional vampire drain: the car will fall asleep as soon as possible
+ * Automatic address lookup
+ * Easy integration into Home Assistant (via MQTT)
+ * Geo-fencing feature to create custom locations
+ * Supports multiple vehicles per Tesla Account
+ * Charge cost tracking
+ * Import from TeslaFi and tesla-apiscraper
+  </Overview>
+  <Registry>https://hub.docker.com/r/teslamate/teslamate</Registry>
+  <Repository>teslamate/teslamate</Repository>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/adriankumpf/teslamate</Support>
+  <Network Default="bridge">bridge</Network>
+  <WebUI>http://[IP]:[PORT:4000]</WebUI>
+  <Icon>https://raw.githubusercontent.com/Thunderbird2086/unraid-teslamate/master/img/tesla.png</Icon>
+  <Category>Tools Other Status:Stable</Category>
+  <Config
+        Type="Path"
+        Name="Import directory"
+        Target="/opt/app/import"
+        Default="/mnt/user/appdata/Teslamate/import"
+        Description="Import directory for your teslamate"
+        Mask="false"
+        Display="advanced"
+        Required="true">/mnt/user/appdata/Teslamate/import</Config>
+  <Config
+        Type="Variable"
+        Name="DATABASE_USER"
+        Target="DATABASE_USER"
+        Default="teslamate"
+        Description="Postgres database user name"
+        Mask="false"
+        Display="always"
+        Required="true">teslamate</Config>
+  <Config
+        Type="Variable"
+        Name="DATABASE_PASS"
+        Target="DATABASE_PASS"
+        Default="teslamate"
+        Description="Postgres database user password"
+        Mask="true"
+        Display="always"
+        Required="true">teslamate</Config>
+  <Config
+        Type="Variable"
+        Name="DATABASE_NAME"
+        Target="DATABASE_NAME"
+        Default="teslamate"
+        Description="Postgres database name"
+        Mask="false"
+        Display="always"
+        Required="true">teslamate</Config>
+  <Config
+        Type="Variable"
+        Name="DATABASE_HOST"
+        Target="DATABASE_HOST"
+        Default="database"
+        Description="Postgres10 database host"
+        Mask="false"
+        Display="always"
+        Required="true">database</Config>
+  <Config
+        Type="Variable"
+        Name="MQTT_HOST"
+        Target="MQTT_HOST"
+        Default="mostquitto"
+        Description="MQTT host"
+        Mask="false"
+        Display="always"
+        Required="true">mosquitto</Config>
+  <Config
+        Type="Port"
+        Name="Teslamate Web UI"
+        Target="4000"
+        Default="4000"
+        Mode="tcp"
+        Description="Teslamate Web UI port"
+        Display="always"
+        Required="true">4000</Config>
+  <Beta>False</Beta>
+  <Project/>
+  <TemplateURL>https://github.com/Thunderbird2086/unraid-teslamate/blob/master/teslamate.xml</TemplateURL>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>4000</HostPort>
+        <ContainerPort>4000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Teslamate/import</HostDir>
+      <ContainerDir>/opt/app/import</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>DATABASE_USER</Name>
+      <Mode/>
+      <Value>teslamate</Value>
+    </Variable>
+    <Variable>
+      <Name>DATABASE_PASS</Name>
+      <Mode/>
+      <Value>teslamate</Value>
+    </Variable>
+    <Variable>
+      <Name>DATABASE_NAME</Name>
+      <Mode/>
+      <Value>teslamate</Value>
+    </Variable>
+    <Variable>
+      <Name>DATABASE_HOST</Name>
+      <Mode/>
+      <Value>database</Value>
+    </Variable>
+    <Variable>
+      <Name>MQTT_HOST</Name>
+      <Mode/>
+      <Value>mostquitto</Value>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <ExtraParams/>
+  <PostArgs/>
+  <DonateText/>
+  <DonateLink/>
+</Container>
+
